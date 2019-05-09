@@ -1,0 +1,5 @@
+dependencies {
+    compile('com.fanglin:common:1.0.0'){
+        transitive false
+    }
+}

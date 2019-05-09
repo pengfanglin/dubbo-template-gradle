@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fanglin.dubbo.template.mapper.MemberMapper">
+  <select id="getAuthInfo" parameterType="string" resultType="string">
+    SELECT CONCAT(GROUP_CONCAT(DISTINCT role_value), ',', GROUP_CONCAT(DISTINCT authority_value))
+    FROM role AS a INNER JOIN authority AS b
+        ON FIND_IN_SET(a.role_id, #{roleIds}) AND a.is_disable = 0 AND FIND_IN_SET(b.authority_id, a.authority_ids) AND
+           b.is_disable = 0
+  </select>
+</mapper>

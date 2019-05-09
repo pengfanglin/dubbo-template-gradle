@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:mysql://172.17.0.1:3306/test?useSSL=false&serverTimezone=CTT&characterEncoding=UTF-8&autoReconnect=true
+    username: root
+    password: 123456
+  redis:
+    host: 172.17.0.1
+    port: 6379
+    database: 0
+    password: 123456
+jedis:
+  password: 123456
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+dubbo:
+  registry:
+    address: nacos://172.17.0.1:8848
+    filter: tracing
+zipkin:
+  address: http://47.101.151.125:9411/api/v2/spans
+  service-name: template
+  sampling-rate: 1
+common:
+  jedis: true
