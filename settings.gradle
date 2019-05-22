@@ -1,6 +1,6 @@
 rootProject.name = 'dubbo-template'
 include 'api'
-findProject(':api')?.name = 'dubbo-template-api'
+findProject(':api')?.name = 'dubbo-api'
 include 'service'
-findProject(':service')?.name = 'dubbo-template-service'
+findProject(':service')?.name = 'dubbo-service'
 

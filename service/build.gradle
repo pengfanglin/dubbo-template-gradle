@@ -1,14 +1,13 @@
 dependencies {
-    compile project(":dubbo-template-api")
-    compile("com.fanglin:common:1.0.0"){
-        transitive false
-    }
+    compile project(":dubbo-api")
     compile("tk.mybatis:mapper-spring-boot-starter:${mapperVersion}")
     compile("com.alibaba:dubbo:${alibabaDubboVersion}")
     compile("com.alibaba:dubbo-registry-nacos:${dubboRegistryNacosVersion}")
     compile("com.alibaba.boot:dubbo-spring-boot-starter:${dubboStarterVersion}")
     compile("mysql:mysql-connector-java:${mysqlVersion}")
-    compile ("io.netty:netty-all:${nettyVersion}")
+    compile ("io.netty:netty-all")
     compile("com.github.pagehelper:pagehelper-spring-boot-starter:${pagehelperVersion}")
-    
+    compile('com.fanglin.common:common:1.0.0'){
+        transitive false
+    }
 }

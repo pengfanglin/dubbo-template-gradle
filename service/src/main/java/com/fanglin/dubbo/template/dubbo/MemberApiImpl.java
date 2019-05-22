@@ -9,6 +9,7 @@ import com.fanglin.dubbo.template.mapper.MapperFactory;
 import com.fanglin.dubbo.template.model.MemberModel;
 import com.fanglin.common.utils.BeanUtils;
 import com.github.pagehelper.PageRowBounds;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -54,7 +55,7 @@ public class MemberApiImpl implements MemberApi {
 
     @Override
     public PageResult<MemberModel> getMemberList(Page page) {
-        PageRowBounds pageRowBounds = new PageRowBounds((page.getPage() - 1) * page.getLimit(), page.getLimit());
+        PageRowBounds pageRowBounds=new PageRowBounds(page.getPage(),page.getLimit());
         return new PageResult<>(BeanUtils.copy(mapperFactory.memberMapper.selectByRowBounds(null, pageRowBounds), MemberModel.class), pageRowBounds.getTotal());
     }
 
