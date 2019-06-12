@@ -37,4 +37,11 @@ allprojects {
         )
         annotationProcessor "org.projectlombok:lombok"
     }
+    publishing {
+        publications {
+            myPublish(MavenPublication) {
+                from components.java
+            }
+        }
+    }
 }
