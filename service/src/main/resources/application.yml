@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   main:
     allow-bean-definition-overriding: true
   application:
@@ -29,3 +31,5 @@ dubbo:
     port: 20880
   provider:
     timeout: 10000
+logging:
+  config: classpath:logback-spring.xml
