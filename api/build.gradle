@@ -1,5 +1,5 @@
 dependencies {
-    compile('com.fanglin.common:common:1.0.0'){
+    implementation('com.fanglin.common:common:1.0.0'){
         transitive false
     }
 }

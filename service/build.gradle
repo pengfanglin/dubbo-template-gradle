@@ -1,14 +1,14 @@
 dependencies {
-    compile project(":api")
-    compile("tk.mybatis:mapper-spring-boot-starter:${mapperVersion}")
-    compile("com.alibaba:dubbo:${alibabaDubboVersion}")
-    compile("com.alibaba:dubbo-registry-nacos:${dubboRegistryNacosVersion}")
-    compile("com.alibaba.boot:dubbo-spring-boot-starter:${dubboStarterVersion}")
-    compile("mysql:mysql-connector-java:${mysqlVersion}")
-    compile ("io.netty:netty-all")
-    compile("com.github.pagehelper:pagehelper-spring-boot-starter:${pagehelperVersion}")
-    compile('com.fanglin.common:common:1.0.0'){
+    implementation project(":api")
+    implementation("tk.mybatis:mapper-spring-boot-starter:${mapperVersion}")
+    implementation("com.alibaba:dubbo:${alibabaDubboVersion}")
+    implementation("com.alibaba:dubbo-registry-nacos:${dubboRegistryNacosVersion}")
+    implementation("com.alibaba.boot:dubbo-spring-boot-starter:${dubboStarterVersion}")
+    implementation("mysql:mysql-connector-java:${mysqlVersion}")
+    implementation ("io.netty:netty-all")
+    implementation("com.github.pagehelper:pagehelper-spring-boot-starter:${pagehelperVersion}")
+    implementation('com.fanglin.common:common:1.0.0'){
         transitive false
     }
-    compile("net.logstash.logback:logstash-logback-encoder:6.1")
+    implementation("net.logstash.logback:logstash-logback-encoder:6.1")
 }

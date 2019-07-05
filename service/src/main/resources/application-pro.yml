@@ -1,25 +1,50 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: dubbo-template
   datasource:
     url: jdbc:mysql://172.17.0.1:3306/test?useSSL=false&serverTimezone=CTT&characterEncoding=UTF-8&autoReconnect=true
     username: root
     password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 100
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: HikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
   redis:
     host: 172.17.0.1
     port: 6379
     database: 0
     password: 123456
+    timeout: 5000
 jedis:
   password: 123456
 mybatis:
+  type-aliases-package: com.fanglin.dubbo.template.entity
+  mapper-locations: classpath:mapper/*.xml
   configuration:
+    map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 dubbo:
   registry:
     address: nacos://172.17.0.1:8848
     filter: tracing
+  application:
+    name: dubbo-template
+  protocol:
+    name: dubbo
+    port: 20880
+  provider:
+    timeout: 10000
 zipkin:
-  address: http://47.101.151.125:9411/api/v2/spans
+  address: http://172.17.0.1:9411/api/v2/spans
   service-name: template
   sampling-rate: 1
-common:
-  jedis: true
+logging:
+  config: classpath:logback-spring.xml
