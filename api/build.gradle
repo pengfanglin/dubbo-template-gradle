@@ -1,7 +1,0 @@
-dependencies {
-    implementation('com.fanglin.common:common:1.0.0'){
-        transitive false
-    }
-}
-bootJar.enabled=false
-jar.enabled=true

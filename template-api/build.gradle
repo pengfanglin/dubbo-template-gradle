@@ -1,0 +1,9 @@
+def env = project.hasProperty('env') && project.property("env") == "pro" ? "pro" : "dev"
+def jarVersionSuffix = env == "pro" ? "-RELEASE" : "-SNAPSHOT"
+dependencies {
+    implementation("com.fanglin.common:common:1.0.0${jarVersionSuffix}"){
+        transitive false
+    }
+}
+bootJar.enabled=false
+jar.enabled=true

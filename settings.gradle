@@ -1,4 +1,4 @@
 rootProject.name = 'dubbo-template'
-include 'api'
-include 'service'
+include 'template-api'
+include 'template-service'
 

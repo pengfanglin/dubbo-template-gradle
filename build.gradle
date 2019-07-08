@@ -7,8 +7,10 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+def env = project.hasProperty('env') && project.property("env") == "pro" ? "pro" : "dev"
+def jarVersionSuffix = env == "pro" ? "-RELEASE" : "-SNAPSHOT"
+
 allprojects {
-    apply from: rootProject.projectDir.path + '/ext.gradle'
     apply plugin: 'java-library'
     apply plugin: 'idea'
     apply plugin: 'maven'
@@ -43,6 +45,21 @@ allprojects {
             maven(MavenPublication) {
                 from components.java
             }
+        }
+        repositories {
+            maven {
+                name = 'local'
+                version += jarVersionSuffix
+            }
+        }
+    }
+
+    tasks {
+        processResources {
+            from("src/main/resources")
+            into("$buildDir/resources/main")
+            include("application-" + env + ".yml","*.xml")
+            rename("application-" + env + ".yml", "application.yml")
         }
     }
 }
