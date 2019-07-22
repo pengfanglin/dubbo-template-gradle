@@ -58,7 +58,7 @@ allprojects {
         processResources {
             from("src/main/resources")
             into("$buildDir/resources/main")
-            include("application-" + env + ".yml","*.xml")
+            include("application-" + env + ".yml","**/*.xml")
             rename("application-" + env + ".yml", "application.yml")
         }
     }
