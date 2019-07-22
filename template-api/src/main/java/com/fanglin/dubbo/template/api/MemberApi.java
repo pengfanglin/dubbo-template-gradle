@@ -1,5 +1,6 @@
 package com.fanglin.dubbo.template.api;
 
+import com.fanglin.common.core.others.BusinessException;
 import com.fanglin.common.core.page.Page;
 import com.fanglin.common.core.page.PageResult;
 import com.fanglin.dubbo.template.model.MemberModel;
@@ -19,7 +20,7 @@ public interface MemberApi {
      * @param member
      * @return
      */
-    int updateMember(MemberModel member);
+    int updateMember(MemberModel member) throws BusinessException;
 
     /**
      * 获取用户信息
@@ -27,7 +28,7 @@ public interface MemberApi {
      * @param memberId
      * @return
      */
-    MemberModel getMemberDetail(Integer memberId);
+    MemberModel getMemberDetail(Integer memberId) throws BusinessException;
 
     /**
      * 添加用户
@@ -35,7 +36,7 @@ public interface MemberApi {
      * @param member
      * @return
      */
-    int insertMember(MemberModel member);
+    int insertMember(MemberModel member) throws BusinessException;
 
     /**
      * 通过用户名获取用户信息
@@ -43,7 +44,7 @@ public interface MemberApi {
      * @param username
      * @return
      */
-    MemberModel getMemberByUsername(String username);
+    MemberModel getMemberByUsername(String username) throws BusinessException;
 
     /**
      * 获取用户列表
@@ -51,7 +52,7 @@ public interface MemberApi {
      * @param page
      * @return
      */
-    PageResult<MemberModel> getMemberList(Page page);
+    PageResult<MemberModel> getMemberList(Page page) throws BusinessException;
 
     /**
      * 用户权限信息
@@ -59,5 +60,5 @@ public interface MemberApi {
      * @param roleIds
      * @return
      */
-    String getAuthInfo(String roleIds);
+    String getAuthInfo(String roleIds) throws BusinessException;
 }

@@ -5,9 +5,10 @@ import org.springframework.stereotype.Component;
 
 /**
  * mapper工厂
+ *
  * @author 彭方林
- * @date 2019/4/3 14:20
  * @version 1.0
+ * @date 2019/4/3 14:20
  **/
 @Component
 public class MapperFactory {

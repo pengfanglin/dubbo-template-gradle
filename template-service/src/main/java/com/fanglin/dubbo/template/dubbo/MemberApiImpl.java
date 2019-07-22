@@ -25,10 +25,6 @@ public class MemberApiImpl implements MemberApi {
     @Autowired
     MapperFactory mapperFactory;
 
-    /**
-     * @param memberId
-     * @return
-     */
     @Override
     public MemberModel getMemberDetail(Integer memberId) {
         MemberEntity memberEntity = mapperFactory.memberMapper.selectByPrimaryKey(memberId);
@@ -54,7 +50,7 @@ public class MemberApiImpl implements MemberApi {
 
     @Override
     public PageResult<MemberModel> getMemberList(Page page) {
-        PageRowBounds pageRowBounds=new PageRowBounds(page.getPage(),page.getLimit());
+        PageRowBounds pageRowBounds = new PageRowBounds(page.getPage(), page.getLimit());
         return new PageResult<>(BeanUtils.copy(mapperFactory.memberMapper.selectByRowBounds(null, pageRowBounds), MemberModel.class), pageRowBounds.getTotal());
     }
 

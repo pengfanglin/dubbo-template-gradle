@@ -1,9 +1,15 @@
 def env = project.hasProperty('env') && project.property("env") == "pro" ? "pro" : "dev"
 def jarVersionSuffix = env == "pro" ? "-RELEASE" : "-SNAPSHOT"
+
+ext {
+    swaggerVersion = '1.5.20'
+}
+
 dependencies {
-    implementation("com.fanglin.common:common:1.0.0${jarVersionSuffix}"){
+    implementation("com.fanglin.common:common:1.0.0${jarVersionSuffix}") {
         transitive false
     }
+    implementation("io.swagger:swagger-annotations:${swaggerVersion}")
 }
-bootJar.enabled=false
-jar.enabled=true
+bootJar.enabled = false
+jar.enabled = true
