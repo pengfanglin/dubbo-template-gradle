@@ -14,15 +14,9 @@ spring:
       maximum-pool-size: 100
       auto-commit: true
       idle-timeout: 30000
-      pool-name: HikariCP
+      pool-name: hikariCP
       max-lifetime: 1800000
       connection-timeout: 30000
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    database: 0
-    password: 123456
-    timeout: 5000
 jedis:
   password: 123456
 mybatis:
@@ -31,6 +25,14 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    default-enum-type-handler: com.fanglin.common.core.enums.CodeEnumTypeHandler
+mapper:
+  before: true
+  safe-delete: true
+  safe-update: true
+  enum-as-simple-type: false
+pagehelper:
+  offset-as-page-num: true
 dubbo:
   registry:
     address: nacos://127.0.0.1:8848
