@@ -1,6 +1,5 @@
 package com.fanglin.dubbo.template.dubbo;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.fanglin.common.core.page.Page;
 import com.fanglin.common.core.page.PageResult;
 import com.fanglin.common.utils.BeanUtils;
@@ -9,6 +8,7 @@ import com.fanglin.dubbo.template.entity.MemberEntity;
 import com.fanglin.dubbo.template.mapper.MapperFactory;
 import com.fanglin.dubbo.template.model.MemberModel;
 import com.github.pagehelper.PageRowBounds;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
