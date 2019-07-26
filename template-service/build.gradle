@@ -1,4 +1,4 @@
-def env = project.hasProperty('env') && project.property("env") == "pro" ? "pro" : "dev"
+def env = project.hasProperty('env') ? project.property("env") : "test"
 def jarVersionSuffix = env == "pro" ? "-RELEASE" : "-SNAPSHOT"
 ext {
     mapperVersion = '2.1.5'

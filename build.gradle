@@ -7,7 +7,7 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-def env = project.hasProperty('env') && project.property("env") == "pro" ? "pro" : "dev"
+def env = project.hasProperty('env') ? project.property("env") : "test"
 def jarVersionSuffix = env == "pro" ? "-RELEASE" : "-SNAPSHOT"
 
 allprojects {
