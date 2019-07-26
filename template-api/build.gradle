@@ -1,5 +1,7 @@
 def env = project.hasProperty('env') ? project.property("env") : "test"
 def jarVersionSuffix = env == "pro" ? "-RELEASE" : "-SNAPSHOT"
+bootJar.enabled = false
+jar.enabled = true
 
 ext {
     swaggerVersion = '1.5.20'
@@ -11,5 +13,3 @@ dependencies {
     }
     implementation("io.swagger:swagger-annotations:${swaggerVersion}")
 }
-bootJar.enabled = false
-jar.enabled = true

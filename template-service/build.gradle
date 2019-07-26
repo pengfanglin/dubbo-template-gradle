@@ -1,5 +1,8 @@
 def env = project.hasProperty('env') ? project.property("env") : "test"
 def jarVersionSuffix = env == "pro" ? "-RELEASE" : "-SNAPSHOT"
+bootJar.enabled=true
+jar.enabled = true
+
 ext {
     mapperVersion = '2.1.5'
     pagehelperVersion = '1.2.12'
