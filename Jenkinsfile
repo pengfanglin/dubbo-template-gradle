@@ -40,6 +40,9 @@ pipeline {
   }
   environment {
     projectName = 'dubbo-template-gradle'
+    buildName = 'dubbo-template'
+    buildVersion='1.0.0'
     gitUrl = 'https://github.com/pengfanglin'
+    dockerUrl='docker.qubaotang.cn'
   }
 }
