@@ -23,6 +23,10 @@ pipeline {
       }
       steps {
         sh 'gradle build publishMavenPublicationToNexusRepository -x test --refresh-dependencies'
+        sh 'docker build -t ${dockerUrl}/${buildName}:${buildVersion}-test .'
+        sh 'docker login -u admin -p 123456 ${dockerUrl}'
+        sh 'docker push ${dockerUrl}/${buildName}:${buildVersion}-test'
+        sh 'docker rmi ${dockerUrl}/${buildName}:${buildVersion}-test'
       }
     }
     stage('build-master') {
