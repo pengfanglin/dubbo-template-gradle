@@ -31,10 +31,10 @@ allprojects {
     repositories {
         mavenLocal()
         maven {
-            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+            url 'http://nexus.qubaotang.cn/repository/maven-public/'
         }
         maven {
-            url 'http://nexus.qubaotang.cn/repository/maven-public/'
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
         }
     }
 
