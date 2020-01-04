@@ -17,8 +17,6 @@ spring:
       pool-name: hikariCP
       max-lifetime: 1800000
       connection-timeout: 30000
-jedis:
-  password: 123456
 mybatis:
   type-aliases-package: com.fanglin.dubbo.template.entity
   mapper-locations: classpath:mapper/*.xml
@@ -44,9 +42,13 @@ dubbo:
     port: 20880
   provider:
     timeout: 10000
-zipkin:
-  address: http://47.101.151.125:9411/api/v2/spans
-  service-name: template
-  sampling-rate: 1
 logging:
   config: classpath:logback-spring.xml
+common:
+  jedis:
+    enable: true
+    password: 123456
+  zipkin:
+    address: http://47.101.151.125:9411/api/v2/spans
+    service-name: template
+    sampling-rate: 1

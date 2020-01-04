@@ -44,9 +44,13 @@ dubbo:
     port: 20880
   provider:
     timeout: 10000
-zipkin:
-  address: http://172.17.0.1:9411/api/v2/spans
-  service-name: template
-  sampling-rate: 1
+common:
+  jedis:
+    enable: true
+    password: 123456
+  zipkin:
+    address: http://47.101.151.125:9411/api/v2/spans
+    service-name: template
+    sampling-rate: 1
 logging:
   config: classpath:logback-spring.xml

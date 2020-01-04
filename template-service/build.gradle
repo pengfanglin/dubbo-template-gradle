@@ -1,6 +1,6 @@
 def env = project.hasProperty('env') ? project.property("env") : "test"
 def jarVersionSuffix = env == "pro" ? "-RELEASE" : "-SNAPSHOT"
-bootJar.enabled=true
+bootJar.enabled = true
 jar.enabled = true
 
 ext {
@@ -14,6 +14,7 @@ ext {
     commonVersion = "1.0.0${jarVersionSuffix}"
     logbackEncoder = '6.1'
     mybatisSpringbootStarterVersion = '2.1.0'
+    catVersion = '3.0.0'
 }
 dependencies {
     implementation project(":template-api")
@@ -30,4 +31,5 @@ dependencies {
         transitive false
     }
     implementation("net.logstash.logback:logstash-logback-encoder:${logbackEncoder}")
+    implementation("com.dianping.cat:cat-client:${catVersion}")
 }
